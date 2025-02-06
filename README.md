@@ -28,9 +28,33 @@ Colour thresholding and colour segmentation were performed for object identifica
   <img src="https://github.com/hongd13/Robotic-Arm/blob/master/pictures/mask_view_2.jpg?raw=true"/>
 </div>
 
+Contour detection is then applied on the masked layer, to draw definitive bounding boxes around the identified objects. As shown below, the next targeted object will be highlighted in red, otherwise green.
 
+<div align="center">
+  <img src="https://github.com/hongd13/Robotic-Arm/blob/master/pictures/box_view_2.jpg?raw=true"/>
+</div>
 
 ## Robot in Action
+
+If the area size of a highlighted box is bigger than a certain threshold, it will be considered a cluster (a bounding box containing multiple objects). A sweeping manoeuvre will be carried out to break the cluster apart.
+
+<div align="center">
+  <img src="https://github.com/hongd13/Robotic-Arm/blob/master/pictures/sweep.gif?raw=true"/>
+</div>
+
+In order to gain the best grasp of the cube, it is required to first align the gripper with the cube parallelly. Such alignment is done by checking for the minimum size of a bounding box, as the size of the cube is always the smallest when aligned exactly with the camera. 
+
+<div align="center">
+  <img src="https://github.com/hongd13/Robotic-Arm/blob/master/pictures/alignment.gif?raw=true"/>
+  <img src="https://github.com/hongd13/Robotic-Arm/blob/master/pictures/alignment_2.gif?raw=true"/>
+</div>
+
+If the robot loses its grasp or fails to pick up an object unexpectedly, it can recover the object from the point where the object was lost.
+
+<div align="center">
+  <img src="https://github.com/hongd13/Robotic-Arm/blob/master/pictures/recovery.gif?raw=true"/>
+  <img src="https://github.com/hongd13/Robotic-Arm/blob/master/pictures/recovery_2.gif?raw=true"/>
+</div>
 
 <div align="center">
   <img src="https://github.com/hongd13/Robotic-Arm/blob/master/pictures/1%20cube%205.5x.gif?raw=true"/>

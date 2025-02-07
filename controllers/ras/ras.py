@@ -11,50 +11,6 @@ from util import gimp_hsv_to_cv2
 from mission_control import Mission_Control
 
 
-"""
-MISSION 2: Control of a Robot Manipulator Arm for a Pick and Place Task
-Learning outcomes: 1, 2, 3
-
-Scenario:
-A manipulator arm is equipped with a camera at its end-effector. 
-The existing controller already provides behaviours to move
-the robot in joint and/or task space and to open/close the gripper.
-There are five cubes randomly distributed in the robot's work space,
-and there is a crate, which is always in the same spot.
-
-Task: 
-Use the camera to detect the cubes. Implement a controller for the 
-manipulator arm that clears the objects from the table and drops 
-them into the crate.
-
-Hints:
-1) INSTALLATION
-The project requires the kinpy library, which you should install into
-your environment. It is an open source library, so you can directly 
-look at the code on github.
-
-2) TRANSFORMS
-You can move the robot in task space by computing the inverse kinematics.
-The kinpy.Transform object describes the pose in task space. 
-See more details here: 
-https://github.com/neka-nat/kinpy/blob/master/kinpy/transform.py
-It consists of a pos (position as [x, y, z]) and rot (rotation). 
-The rotation is a quaternion in the [w, x, y, z] format. You can include
-other libraries to convert between rotation representations, such as 
-rotation matrices, axis-angle, and Euler angles. Just be aware that some
-there is an alternative convention for the order of elements in a quaternion,
-which is [x, y, z, w] - it is a common source of errors.
-scipy.spatial.transform could be a good option, but it uses the [x, y, z, w]
-convention, so you would need to convert the quaternions.
-
-3) GRASPING
-Simulating contact-rich tasks is very difficult. You might notice that
-the cubes sometimes act unexpectedly when being grasped.
-It is generally a good idea to align the gripper as best as possible to the 
-parallel surfaces of the cube, and to only move with low velocity when
-picking up an object.
-"""
-
 class UR5e(RASRobot):
     def __init__(self):
         """
@@ -294,15 +250,6 @@ if __name__ == '__main__':
     while mc.run(img):
         img = robot.get_camera_image()
 
-    print("Recalibrating")
-    robot.move_to_joint_pos(robot.home_pos)
-    robot.set_camera_orientation([1, 0, 0], 90)
-    for i in range(0, 20, 1):
-        robot.move_in_axis(0, 0, -0.1)
-        robot.move_in_axis(0, 0, +0.1)
-    
     print("Terminating")
     robot.move_to_joint_pos(robot.home_pos)
 
-    
-    # todo: find cubes, grasp them and drop them into the basket!

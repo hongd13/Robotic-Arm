@@ -56,6 +56,8 @@ If the robot loses its grasp or fails to pick up an object unexpectedly, it can 
   <img src="https://github.com/hongd13/Robotic-Arm/blob/master/pictures/recovery_2.gif?raw=true"/>
 </div>
 
+When a cube is grasped securely, the robot will then proceed to drop the cube into the basket located on the table-top.
+
 <div align="center">
   <img src="https://github.com/hongd13/Robotic-Arm/blob/master/pictures/1%20cube%205.5x.gif?raw=true"/>
 </div>

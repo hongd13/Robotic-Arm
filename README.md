@@ -25,13 +25,13 @@ The robotic arm comes equipped with a camera mounted on the gripper, oriented to
 Colour thresholding and colour segmentation were performed for object identification. Given the distinct colour differences between the objects and table-top surfaces, these techniques provide robust and reliable object identification results. As shown below, the masked view after the colour thresholds were applied. 
 
 <div align="center">
-  <img src="/pictures/mask_view_2.jpg?raw=true"/>
+  <img src="pictures/mask_view_2.jpg?raw=true"/>
 </div>
 
 Contour detection is then applied on the masked layer, to draw definitive bounding boxes around the identified objects. As shown below, the next targeted object will be highlighted in red, otherwise green.
 
 <div align="center">
-  <img src="../master/pictures/box_view_2.jpg?raw=true"/>
+  <img src="pictures/box_view_2.jpg?raw=true"/>
 </div>
 
 ## Robot in Action
@@ -39,29 +39,29 @@ Contour detection is then applied on the masked layer, to draw definitive boundi
 If the area size of a highlighted box is bigger than a certain threshold, it will be considered a cluster (a bounding box containing multiple objects). A sweeping manoeuvre will be carried out to break the cluster apart.
 
 <div align="center">
-  <img src="../master/pictures/sweep.gif?raw=true"/>
+  <img src="pictures/sweep.gif?raw=true"/>
 </div>
 
 In order to gain the best grasp of the cube, it is required to first align the gripper with the cube parallelly. Such alignment is done by checking for the minimum size of a bounding box, as the size of the cube is always the smallest when aligned exactly with the camera. 
 
 <div align="center">
-  <img src="../master/pictures/alignment.gif?raw=true"/>
-  <img src="../master/pictures/alignment_2.gif?raw=true"/>
+  <img src="pictures/alignment.gif?raw=true"/>
+  <img src="pictures/alignment_2.gif?raw=true"/>
 </div>
 
 If the robot loses its grasp or fails to pick up an object unexpectedly, it can recover the object from the point where the object was lost.
 
 <div align="center">
-  <img src="../master/pictures/recovery.gif?raw=true"/>
-  <img src="../master/pictures/recovery_2.gif?raw=true"/>
+  <img src="pictures/recovery.gif?raw=true"/>
+  <img src="pictures/recovery_2.gif?raw=true"/>
 </div>
 
 When a cube is grasped securely, the robot will then proceed to drop the cube into the basket located on the table-top.
 
 <div align="center">
-  <img src="../master/pictures/1%20cube%205.5x.gif?raw=true"/>
+  <img src="pictures/1%20cube%205.5x.gif?raw=true"/>
 </div>
 
 ## Implementations
 
-To see full implementations in detail, please go to **"master"** branch, **"controllers/ras"**.
+To see full implementations in detail, please go to **"controllers/ras"**.
